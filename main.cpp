@@ -88,7 +88,7 @@ int main(int argc, char*argv[]) {
 
 		// Déplacement du pion
 
-
+		// Fin du jeu
 		gameIsOVER = true;
 
 	}

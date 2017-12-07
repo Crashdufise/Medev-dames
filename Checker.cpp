@@ -53,5 +53,32 @@ checker::checker(int _posX, int _posY, bool _color, bool _isNull) {		// construc
 	setIsNull(_isNull);
 }
 
-checker::~checker() {
+void checker::deplacement(int dir, vector<vector<checker>> _damier) {	// méthode de déplacement du pion : 1 en haut à droite, 2 en bas à droite, 3 en bas à gauche, 4 en haut à gauche
+	int i = posX;
+	int j = posY;
+
+	switch (dir)
+	{
+	case 1:																// en haut à droite
+		i++;
+		j++;
+		break;
+	case 2:																// en bas à droite
+		i--;
+		j++;
+		break;
+	case 3:																// en bas à gauche
+		i--;
+		j--;
+		break;
+	case 4:																// en haut à gauche
+		i++;
+		j--;
+		break;
+	default:															// on considère l'utilisateur civilisé : s'il ne l'est pas on considère qu'il ne veut pas bouger.
+		break;
+	}
+}
+
+checker::~checker() {													// destructeur
 }

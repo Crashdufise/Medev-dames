@@ -21,6 +21,7 @@ public:
 	void setRoyalty();											// accesseur en ecriture du type de pion
 	bool getIsNull();											// accesseur en lecture du type de pion
 	void setIsNull(bool _isNull);								// accesseur en ecriture du type de pion
+	void deplacement(int dir, vector<vector<checker>> damier);	// méthode de déplacement du pion : 1 en haut à droite, 2 en bas à droite, 3 en bas à gauche, 4 en haut à gauche
 
 
 	checker();													// constructeur sans argument (ne sert normalement à rien)
