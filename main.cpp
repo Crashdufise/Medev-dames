@@ -3,22 +3,6 @@
 #include "gtest/gtest.h"
 #include "Checker.h"
 
-/*
-int main() {
-
-	vector<vector<checker>> damier;
-
-	damier = initialisation();
-
-
-	bool gameIsNOTOVER = true;
-
-	while(gameIsNOTOVER) {
-		// c'est très la boucle de jeu
-
-	}
-
-} */
 
 vector<vector<checker>> initialisation() {
 	vector<vector<checker>> _damier;
@@ -59,4 +43,21 @@ vector<vector<checker>> initialisation() {
 
 TEST(initialisation, PlaceAuxBonsEndroits) {
 	EXPECT_EQ(true, initialisation()[0][0].getColor());
+}
+
+int main(int argc, char*argv[]) {
+	::testing::InitGoogleTest(&argc, argv);
+	RUN_ALL_TESTS();
+
+	vector<vector<checker>> damier;
+
+	damier = initialisation();
+
+
+	bool gameIsNOTOVER = true;
+
+	while(gameIsNOTOVER) {
+		gameIsNOTOVER = false;
+
+	}
 }

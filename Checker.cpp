@@ -52,3 +52,6 @@ checker::checker(int _posX, int _posY, bool _color, bool _isNull) {		// construc
 	isKing = false;
 	setIsNull(_isNull);
 }
+
+checker::~checker() {
+}
