@@ -3,20 +3,13 @@
 #include "gtest/gtest.h"
 #include "Checker.h"
 
-int factorielle(int n) {
-	if (n==0) {
-		return 1;
-	}
-	else {
-		return n*factorielle(n-1);
-	}
-}
-
+/*
 int main() {
 
 	vector<vector<checker>> damier;
 
-	initialisation(&damier);
+	damier = initialisation();
+
 
 	bool gameIsNOTOVER = true;
 
@@ -25,37 +18,45 @@ int main() {
 
 	}
 
-}
+} */
 
-void initialisation(vector<vector<checker>>* damier) {
+vector<vector<checker>> initialisation() {
+	vector<vector<checker>> _damier;
 	for (int i=0; i<10; i++) {
 		vector<checker> ligne;
 		for (int j=0; j<10; j++) {
-			if((i+j)%2 == 0) {
-				if(i<4){
-					ligne.push_back(checker(i,j,true));
+			if((i+j)%2 == 0) 
+			{
+				if(i<4)			// On place les pions blancs
+				{
+					ligne.push_back(checker(i,j,true,false));
 				}
-				if(i>5){
-					ligne.push_back(checker(i,j,false));
+
+				else
+				{
+					if(i>5)		// On place les pions noirs
+					{
+						ligne.push_back(checker(i,j,false,false));
+					}
+
+					else		// On remplit le centre de vide
+					{
+						ligne.push_back(checker(i,j,false,true));
+					}
 				}
 			}
-			else {
-				ligne.push_back(NULL);
+
+			else				// On remplit le reste de vide
+			{
+				ligne.push_back(checker(i,j,false,true));
 			}
-
-
 		}
-
+		_damier.push_back(ligne);
+	}
+	return _damier;
 }
+
 
 TEST(initialisation, PlaceAuxBonsEndroits) {
-	EXPECT_EQ(true, damier[0][0].);
-}
-
-
-TEST(factorielle_test, GereLesPositifs) {
-	EXPECT_EQ(2,factorielle(2));
-	EXPECT_EQ(6,factorielle(3));
-	EXPECT_EQ(120,factorielle(5));
-
+	EXPECT_EQ(true, initialisation()[0][0].getColor());
 }
